@@ -5,8 +5,14 @@ const mongoose = require("mongoose");
 
 const app = express();
 //const router = express.router;
-app.use(express.static("public"));
+app.use(express.static(__dirname +"/public"));
 app.set('view engine', 'ejs');
+const dbKey = require("/config/keys").mongoKey;
+
+mongoose.connect(dbKey, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 app.use(bodyParser.urlencoded({
   extended: true
