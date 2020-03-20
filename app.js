@@ -7,8 +7,10 @@ const app = express();
 //const router = express.router;
 app.use(express.static(__dirname +"/public"));
 app.set('view engine', 'ejs');
-const dbKey = require("/config/keys").mongoKey;
+//KEY FOR ATLAST
+//const dbKey = require("/config/keys").mongoKey;
 
+const dbKey = "mongodb://localhost:27017/WAF";
 mongoose.connect(dbKey, {
   useNewUrlParser: true,
   useUnifiedTopology: true

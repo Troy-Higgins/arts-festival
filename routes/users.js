@@ -10,4 +10,9 @@ router.get("/login",  function(req, res) {
   res.render("login");
 });
 
+router.post("/register", function(req, res) {
+  console.log(req.body);
+  res.send("welcome");
+});
+
 module.exports = router;
