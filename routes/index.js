@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
 router.get("/",  function(req, res) {
-  res.send("Welcome to the home page");
+  res.sendFile("index.html", {root: './public/html'})
 });
 
 module.exports = router;
