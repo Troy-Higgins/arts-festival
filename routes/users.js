@@ -4,25 +4,39 @@ var errors = [];
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const passport = require("passport");
+const auth = require("../config/auth");
+const isAuthenticated = auth.ensureAuthenticated;
+const isNotAuthenticated = auth.isNotAuthenticated;
 
-
-router.get("/register", function(req, res) {
+router.get("/register", isNotAuthenticated, function(req, res) {
   res.render("sign-up");
 });
 
 
-router.get("/login", function(req, res) {
+router.get("/login", isNotAuthenticated, function(req, res) {
   res.render("login");
 });
 
-router.post("/register", function(req, res) {
+
+router.get("/account", isAuthenticated, function(req, res) {
+console.log(req.user);
+  res.render("account", {
+      user: req.user.email
+  });
+});
+
+router.post("/logout", function(req, res) {
+  req.logout();
+  req.flash("successMessage", "you have logged out");
+  res.redirect("/users/login");
+})
+
+router.post("/register",  function(req, res) {
   var errors = [];
   const username = req.body.email;
   const password = req.body.password;
   const password2 = req.body.password2;
-  //const words = "hello world";
-  console.log(username);
-  //console.log(req.body);
   if (!username || !password) {
     errors.push({
       message: "please fill in fields"
@@ -39,11 +53,11 @@ router.post("/register", function(req, res) {
       message: "passwords do not match"
     });
   }
-  if (errors.length > 0) {
-    res.render("sign-up", {
-      errors: errors,
-    });
-  } else {
+    if (errors.length > 0) {
+      res.render("sign-up", {
+        errors: errors,
+      });
+    } else {
     //Form details appear valid!
     User.findOne({
         email: username
@@ -52,9 +66,14 @@ router.post("/register", function(req, res) {
         //check if a user already exists
         if (foundUser) {
           //if they already exist
+          console.log("user found");
           errors.push({
             message: "user already registered"
-          });
+          }
+        );
+        res.render("sign-up", {
+          errors: errors,
+        });
         } else {
           //success, lets make a new data model for them
 
@@ -84,30 +103,13 @@ router.post("/register", function(req, res) {
   }
 });
 
-//router.post("/register", function(req, res) {
-//
-// router.post("/register", function(req, res) {
-//   const username = req.body.name;
-//   const password = req.body.password;
-//   var errors = [];
-//   if (!username || !password) {
-//     errors.push({
-//       message: "please fill in fields"
-//     });
-//   }
-//   if (password.length < 6) {
-//     errors.push({
-//       message: "passwords need to be at least 6 chars"
-//     });
-//   }
-//
-//   if (errors.length > 0) {
-//     res.render("register", {
-//       error: errors,
-//     });
-//   } else {
-//     res.send("pass");
-//   }
-// });
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', {
+    successRedirect: '/users/account',
+    failureRedirect: '/users/login',
+    failureFlash: true
+  })(req, res, next)
+});
+
 
 module.exports = router;
