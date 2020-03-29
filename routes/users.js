@@ -8,6 +8,9 @@ const passport = require("passport");
 const auth = require("../config/auth");
 const isAuthenticated = auth.ensureAuthenticated;
 const isNotAuthenticated = auth.isNotAuthenticated;
+const genOrder = require("../custom-module/generateOrder");
+const generateOrder = genOrder.reserveTicket;
+const bodyParser = require("body-parser");
 
 router.get("/register", isNotAuthenticated, function(req, res) {
   res.render("sign-up");
@@ -18,9 +21,23 @@ router.get("/login", isNotAuthenticated, function(req, res) {
   res.render("login");
 });
 
+router.get("/tickets", isAuthenticated, function(req, res) {
+  res.render("tickets");
+});
+
+router.post("/ticketOrder", isAuthenticated, function(req, res) {
+  //req.flash("successMessage", "you have logged out");
+  //console.log(req.user);
+  const userEmail = req.user.email;
+  const ticketNumber = req.body.NoOfTickets;
+  const successMessage = req.body.NoOfTickets + " tickets reserved";
+  generateOrder(req, res, userEmail, ticketNumber);
+    //req.flash("successMessage", successMessage);
+  //res.redirect("/users/account");
+});
+
 
 router.get("/account", isAuthenticated, function(req, res) {
-console.log(req.user);
   res.render("account", {
       user: req.user.email
   });
@@ -30,7 +47,7 @@ router.post("/logout", function(req, res) {
   req.logout();
   req.flash("successMessage", "you have logged out");
   res.redirect("/users/login");
-})
+});
 
 router.post("/register",  function(req, res) {
   var errors = [];

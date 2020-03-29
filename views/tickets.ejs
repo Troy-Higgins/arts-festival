@@ -1,0 +1,13 @@
+<%- include("partials/header") -%>
+  <form class="" action="/users/ticketOrder" method="post">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Select tickets</label>
+    <select class="form-control" name="NoOfTickets" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+    </select>
+  </div>
+
+  <button type="submit" name="button">Reserve</button>
+</form>
+<%- include("partials/footer") -%>

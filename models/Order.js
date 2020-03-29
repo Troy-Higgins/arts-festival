@@ -4,5 +4,5 @@ const orderSchema = new Schema({
   userID : String,
   ticketID: String,
 });
-const order = mongoose.model("Order", orderSchema);
-module.exports = Ticket;
+const Order = mongoose.model("Order", orderSchema);
+module.exports = Order;
