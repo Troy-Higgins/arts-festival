@@ -1,6 +1,14 @@
 <%- include("partials/header") -%>
-  <form class="" action="/users/ticketOrder" method="post">
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+        if ( <%= ticketNo %> >= 1000) {
+          document.getElementById("submitBtn").disabled = true;
+        }
+      });
+</script>
+<form class="" action="/users/ticketOrder" method="post">
   <div class="form-group">
+    <h1>There are <%= 1000 - ticketNo %> tickets available</h1>
     <label for="exampleFormControlSelect1">Select tickets</label>
     <select class="form-control" name="NoOfTickets" id="exampleFormControlSelect1">
       <option>1</option>
@@ -8,6 +16,8 @@
     </select>
   </div>
 
-  <button type="submit" name="button">Reserve</button>
+  <button type="submit" id="submitBtn" name="button">Reserve</button>
 </form>
+
+
 <%- include("partials/footer") -%>

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 var errors = [];
 const User = require("../models/User.js");
+const Order = require("../models/Order");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const passport = require("passport");
@@ -11,6 +12,7 @@ const isNotAuthenticated = auth.isNotAuthenticated;
 const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
 const bodyParser = require("body-parser");
+
 
 router.get("/register", isNotAuthenticated, function(req, res) {
   res.render("sign-up");
@@ -22,7 +24,9 @@ router.get("/login", isNotAuthenticated, function(req, res) {
 });
 
 router.get("/tickets", isAuthenticated, function(req, res) {
-  res.render("tickets");
+Order.countDocuments({}, function(err, count) {
+  res.render("tickets", {ticketNo : count});
+});
 });
 
 router.post("/ticketOrder", isAuthenticated, function(req, res) {
