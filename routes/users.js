@@ -25,7 +25,8 @@ router.get("/login", isNotAuthenticated, function(req, res) {
 
 router.get("/tickets", isAuthenticated, function(req, res) {
 Order.countDocuments({}, function(err, count) {
-  res.render("tickets", {ticketNo : count});
+//  Order.countDocuments({_id : }, function(err, count) {}
+  res.render("tickets", {ticketCount : count});
 });
 });
 
