@@ -11,6 +11,7 @@ const isAuthenticated = auth.ensureAuthenticated;
 const isNotAuthenticated = auth.isNotAuthenticated;
 const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
+const ticketPage = require("../custom-module/renderTicketPage");
 const bodyParser = require("body-parser");
 
 
@@ -24,10 +25,12 @@ router.get("/login", isNotAuthenticated, function(req, res) {
 });
 
 router.get("/tickets", isAuthenticated, function(req, res) {
-Order.countDocuments({}, function(err, count) {
-//  Order.countDocuments({_id : }, function(err, count) {}
-  res.render("tickets", {ticketCount : count});
-});
+// const userEmail = req.user.email;
+// Order.countDocuments({}, function(err, count) {
+//  Order.countDocuments({userID : userEmail }, function(err, count) {}
+//   res.render("tickets", {ticketCount : count});
+const userEmail = req.user.email;
+ticketPage.renderTicketPage(req,res,userEmail);
 });
 
 router.post("/ticketOrder", isAuthenticated, function(req, res) {

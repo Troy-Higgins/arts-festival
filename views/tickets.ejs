@@ -1,18 +1,19 @@
 <%- include("partials/header") -%>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
-        if ( <%= ticketCount %> >= 1000) {
+        if ( <%= ticketsReserved %> >= 1000) {
           document.getElementById("submitBtn").disabled = true;
         }
       });
 </script>
 <form class="" action="/users/ticketOrder" method="post">
   <div class="form-group">
-    <h1>There are <%= 1000 - ticketCount %> tickets available</h1>
+    <h1>You have resereved <%= reservedByUser %> tickets</h1>
+    <h1>There are <%= 1000 - ticketsReserved %> tickets available</h1>
     <label for="exampleFormControlSelect1">Select tickets</label>
     <select class="form-control" name="NoOfTickets" id="exampleFormControlSelect1">
       <option>1</option>
-    <% if ( ticketCount < 999) {  %>
+    <% if ( (ticketsReserved < 999) && (reservedByUser == 0)) {  %>
       <option>2</option>
   <%  } %>
     </select>
