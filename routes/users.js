@@ -12,6 +12,9 @@ const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
 const bodyParser = require("body-parser");
 
+
+const email = require("../config/nodemailer");
+
 router.get("/register", isNotAuthenticated, function(req, res) {
   res.render("sign-up");
 });
@@ -38,6 +41,7 @@ router.post("/ticketOrder", isAuthenticated, function(req, res) {
 
 
 router.get("/account", isAuthenticated, function(req, res) {
+email.testEmail();
   res.render("account", {
       user: req.user.email
   });
