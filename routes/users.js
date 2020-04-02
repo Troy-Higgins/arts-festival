@@ -11,8 +11,6 @@ const isNotAuthenticated = auth.isNotAuthenticated;
 const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
 const bodyParser = require("body-parser");
-
-
 const email = require("../config/nodemailer");
 
 router.get("/register", isNotAuthenticated, function(req, res) {
@@ -108,6 +106,7 @@ router.post("/register",  function(req, res) {
               //save the user to users collection
               newUser.save(function(err) {
                 if (!err) {
+                  email.signupEmail(username);
                   req.flash('successMessage', 'You now have an account');
                   res.redirect("/users/login");
                 } else {
