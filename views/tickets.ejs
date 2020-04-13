@@ -1,13 +1,26 @@
 <%- include("partials/header") -%>
-  <form class="" action="/users/ticketOrder" method="post">
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+        if ( <%= ticketsReserved %> >= 1000) {
+          document.getElementById("submitBtn").disabled = true;
+        }
+      });
+</script>
+<form class="" action="/users/ticketOrder" method="post">
   <div class="form-group">
+    <h1>You have resereved <%= reservedByUser %> tickets</h1>
+    <h1>There are <%= 1000 - ticketsReserved %> tickets available</h1>
     <label for="exampleFormControlSelect1">Select tickets</label>
     <select class="form-control" name="NoOfTickets" id="exampleFormControlSelect1">
       <option>1</option>
+    <% if ( (ticketsReserved < 999) && (reservedByUser == 0)) {  %>
       <option>2</option>
+  <%  } %>
     </select>
   </div>
 
-  <button type="submit" name="button">Reserve</button>
+  <button type="submit" id="submitBtn" name="button">Reserve</button>
 </form>
+
+
 <%- include("partials/footer") -%>
