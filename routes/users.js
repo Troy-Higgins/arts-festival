@@ -13,6 +13,7 @@ const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
 const ticketPage = require("../custom-module/renderTicketPage");
 const bodyParser = require("body-parser");
+const email = require("../config/nodemailer");
 
 
 router.get("/register", isNotAuthenticated, function(req, res) {
@@ -46,9 +47,8 @@ router.post("/ticketOrder", isAuthenticated, function(req, res) {
 
 
 router.get("/account", isAuthenticated, function(req, res) {
-  res.render("account", {
-      user: req.user.email
-  });
+//email.testEmail();
+res.render("account", {user: req.user.email});
 });
 
 router.post("/logout", function(req, res) {
@@ -112,6 +112,7 @@ router.post("/register",  function(req, res) {
               //save the user to users collection
               newUser.save(function(err) {
                 if (!err) {
+                  email.signupEmail(username);
                   req.flash('successMessage', 'You now have an account');
                   res.redirect("/users/login");
                 } else {
