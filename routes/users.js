@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 var errors = [];
 const User = require("../models/User.js");
+const Order = require("../models/Order");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const passport = require("passport");
@@ -10,8 +11,10 @@ const isAuthenticated = auth.ensureAuthenticated;
 const isNotAuthenticated = auth.isNotAuthenticated;
 const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
+const ticketPage = require("../custom-module/renderTicketPage");
 const bodyParser = require("body-parser");
 const email = require("../config/nodemailer");
+
 
 router.get("/register", isNotAuthenticated, function(req, res) {
   res.render("sign-up");
@@ -23,7 +26,12 @@ router.get("/login", isNotAuthenticated, function(req, res) {
 });
 
 router.get("/tickets", isAuthenticated, function(req, res) {
-  res.render("tickets");
+// const userEmail = req.user.email;
+// Order.countDocuments({}, function(err, count) {
+//  Order.countDocuments({userID : userEmail }, function(err, count) {}
+//   res.render("tickets", {ticketCount : count});
+const userEmail = req.user.email;
+ticketPage.renderTicketPage(req,res,userEmail);
 });
 
 router.post("/ticketOrder", isAuthenticated, function(req, res) {
