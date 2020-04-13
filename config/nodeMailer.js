@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-//https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
->>>>>>> 35c2d771c887b65dc228d6e50d40407f6f4ede18
 nodemailer = require("nodemailer");
 var smtpTransport = require('nodemailer-smtp-transport');
 require("dotenv").config();
@@ -97,34 +93,3 @@ Wheatley Arts Festival`;
     })
   }
 };
-<<<<<<< HEAD
-=======
-
-// testEmail: function() {
-//   let transporter = nodemailer.createTransport({
-//     host: 'smtp.gmail.com',
-//     port: 465,
-//     secure: true,
-//     auth: auth,
-//     tls: {
-//       rejectUnauthorized: false
-//     }
-//   });
-//
-//   let mailOptions = {
-//     from: process.env.GMAIL,
-//     to: "fakemail",
-//     subject: "this is a 2nd test",
-//     text: "worked using special auth"
-//   }
-//
-//   transporter.sendMail(mailOptions, function(err, data) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log("successly sent");
-//     }
-//   })
-// },
-//
->>>>>>> 35c2d771c887b65dc228d6e50d40407f6f4ede18
