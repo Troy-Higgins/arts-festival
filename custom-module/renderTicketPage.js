@@ -23,9 +23,7 @@ module.exports = {
               ticketsReserved: orderCount,
               reservedByUser: userCount
             });
-
           }
-
         });
       });
     });

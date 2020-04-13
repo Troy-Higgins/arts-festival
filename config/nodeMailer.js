@@ -13,8 +13,9 @@ oauth2Client.setCredentials({
   refresh_token: process.env.REFRESH
 });
 
-const accessToken = oauth2Client.getAccessToken()
+const accessToken = oauth2Client.getAccessToken();
 
+let ticketInfo ="";
 
 let welcomeText = `Welcome to Wheatley Arts festival,
 
@@ -58,14 +59,20 @@ module.exports = {
       }
     })
   },
-  ticketReserveEmail: function(userEmail, ticket1ID, ticket2ID) {
-let ticketInfo = "\nTicket 1 ID: " + ticket1ID;
-if (typeof ticket2 !== "undefined") {
-let ticketInfo = ticketInfo + "\nTicket 2 ID:" + ticket2ID;
+
+
+ ticketReserveEmail: function(userEmail, tickets) {
+ticketInfo = "\nTicket 1 ID: " + tickets[0];
+if (tickets.length == 2) {
+ticketInfo = ticketInfo + "\nTicket 2 ID: " + tickets[1];
 }
 let reserveText =  `Dear Sir/Madam,
 
-This is an email confirming your reservation.` + ticketInfo;
+This is an email confirming your reservation.
+` + ticketInfo +
+`
+Kind regards,
+Wheatley Arts Festival`;
     let transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
@@ -76,7 +83,7 @@ This is an email confirming your reservation.` + ticketInfo;
       from: process.env.GMAIL,
       to: userEmail,
       subject: "Ticket reservation",
-      text:
+      text: reserveText
     }
     transporter.sendMail(mailOptions, function(err, data) {
       if (err) {

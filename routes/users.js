@@ -39,10 +39,8 @@ router.post("/ticketOrder", isAuthenticated, function(req, res) {
 
 
 router.get("/account", isAuthenticated, function(req, res) {
-email.testEmail();
-  res.render("account", {
-      user: req.user.email
-  });
+//email.testEmail();
+res.render("account", {user: req.user.email});
 });
 
 router.post("/logout", function(req, res) {
