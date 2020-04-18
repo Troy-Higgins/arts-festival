@@ -11,7 +11,7 @@ const isAuthenticated = auth.ensureAuthenticated;
 const isNotAuthenticated = auth.isNotAuthenticated;
 const genOrder = require("../custom-module/generateOrder");
 const generateOrder = genOrder.reserveTicket;
-const ticketPage = require("../custom-module/renderTicketPage");
+const renderPage = require("../custom-module/renderPage");
 const bodyParser = require("body-parser");
 const email = require("../config/nodemailer");
 
@@ -26,12 +26,12 @@ router.get("/login", isNotAuthenticated, function(req, res) {
 });
 
 router.get("/tickets", isAuthenticated, function(req, res) {
-// const userEmail = req.user.email;
-// Order.countDocuments({}, function(err, count) {
-//  Order.countDocuments({userID : userEmail }, function(err, count) {}
-//   res.render("tickets", {ticketCount : count});
-const userEmail = req.user.email;
-ticketPage.renderTicketPage(req,res,userEmail);
+  // const userEmail = req.user.email;
+  // Order.countDocuments({}, function(err, count) {
+  //  Order.countDocuments({userID : userEmail }, function(err, count) {}
+  //   res.render("tickets", {ticketCount : count});
+  const userEmail = req.user.email;
+  ticketPage.renderTicketPage(req, res, userEmail);
 });
 
 router.post("/ticketOrder", isAuthenticated, function(req, res) {
@@ -41,14 +41,15 @@ router.post("/ticketOrder", isAuthenticated, function(req, res) {
   const ticketNumber = req.body.NoOfTickets;
   const successMessage = req.body.NoOfTickets + " tickets reserved";
   generateOrder(req, res, userEmail, ticketNumber);
-    //req.flash("successMessage", successMessage);
+  //req.flash("successMessage", successMessage);
   //res.redirect("/users/account");
 });
 
 
 router.get("/account", isAuthenticated, function(req, res) {
-//email.testEmail();
-res.render("account", {user: req.user.email});
+  //email.testEmail();
+  const userEmail = req.user.email;
+  renderPage.renderAccountPage(req, res, userEmail);
 });
 
 router.post("/logout", function(req, res) {
@@ -57,7 +58,7 @@ router.post("/logout", function(req, res) {
   res.redirect("/users/login");
 });
 
-router.post("/register",  function(req, res) {
+router.post("/register", function(req, res) {
   var errors = [];
   const username = req.body.email;
   const password = req.body.password;
@@ -78,11 +79,11 @@ router.post("/register",  function(req, res) {
       message: "passwords do not match"
     });
   }
-    if (errors.length > 0) {
-      res.render("sign-up", {
-        errors: errors,
-      });
-    } else {
+  if (errors.length > 0) {
+    res.render("sign-up", {
+      errors: errors,
+    });
+  } else {
     //Form details appear valid!
     User.findOne({
         email: username
@@ -94,11 +95,10 @@ router.post("/register",  function(req, res) {
           console.log("user found");
           errors.push({
             message: "user already registered"
-          }
-        );
-        res.render("sign-up", {
-          errors: errors,
-        });
+          });
+          res.render("sign-up", {
+            errors: errors,
+          });
         } else {
           //success, lets make a new data model for them
 

@@ -1,5 +1,17 @@
 <%- include("partials/messages")  %>
 <h1>Welcome to your account <%= user %></h1>
+<h1>You currently have <%= tickets %> tickets</h1>
+
+<% if (tickets == 1) { %>
+  <h1><%=ticket1%></h1>
+<% } else if (tickets == 2) {%>
+  <h1><%=ticket1%></h1>
+  <h1><%=ticket2%></h1>
+<%}%>
+<br>
+<table>
+
+</table>
 <form class="" action="/users/logout" method="post">
 <button type="submit" name="button">Log out</button>
 </form>
