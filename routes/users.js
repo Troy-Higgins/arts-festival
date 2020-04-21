@@ -31,7 +31,7 @@ router.get("/tickets", isAuthenticated, function(req, res) {
   //  Order.countDocuments({userID : userEmail }, function(err, count) {}
   //   res.render("tickets", {ticketCount : count});
   const userEmail = req.user.email;
-  ticketPage.renderTicketPage(req, res, userEmail);
+  renderPage.renderTicketPage(req, res, userEmail);
 });
 
 router.post("/ticketOrder", isAuthenticated, function(req, res) {

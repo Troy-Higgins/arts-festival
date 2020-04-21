@@ -1,17 +1,59 @@
+<%- include("partials/header")  %>
 <%- include("partials/messages")  %>
+<div align="center">
+
+
 <h1>Welcome to your account <%= user %></h1>
 <h1>You currently have <%= tickets %> tickets</h1>
 
 <% if (tickets == 1) { %>
-  <h1><%=ticket1%></h1>
+<table border = "1">
+  <tr>
+    <th>Ticket</th>
+    <th>TicketID</th>
+    <th>Remove</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><%=ticket1%></td>
+    <td><button type="button" class="btn btn-danger">X</button></td>
+  </tr>
+</table>
 <% } else if (tickets == 2) {%>
-  <h1><%=ticket1%></h1>
-  <h1><%=ticket2%></h1>
+  <table border = "1">
+    <tr>
+      <th>Ticket</th>
+      <th>TicketID</th>
+      <th>Remove</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><%=ticket1%></td>
+      <td><button type="button" class="btn btn-danger">X</button></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><%=ticket2%></td>
+      <td><button type="button" class="btn btn-danger">X</button></td>
+    </tr>
+  </table>
 <%}%>
 <br>
 <table>
 
 </table>
+
+<button name="button" id="ticketButton">Order tickets</button>
+
+
 <form class="" action="/users/logout" method="post">
 <button type="submit" name="button">Log out</button>
 </form>
+</div>
+<script type="text/javascript">
+    document.getElementById("ticketButton").onclick = function () {
+        location.href = "/users/tickets";
+    };
+</script>
+
+<%- include("partials/footer")  %>
