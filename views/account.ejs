@@ -1,43 +1,45 @@
 <%- include("partials/header")  %>
-<%- include("partials/messages")  %>
+
 <div align="center">
+  <%- include("partials/messages")  %>
 
+  <h1>Welcome to your account <%= user %></h1>
+  <h1>You currently have <%= tickets %> tickets</h1>
+  <form class="" action="/users/deleteOrder" method="post">
 
-<h1>Welcome to your account <%= user %></h1>
-<h1>You currently have <%= tickets %> tickets</h1>
-
-<% if (tickets == 1) { %>
-<table border = "1">
-  <tr>
-    <th>Ticket</th>
-    <th>TicketID</th>
-    <th>Remove</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td><%=ticket1%></td>
-    <td><button type="button" class="btn btn-danger">X</button></td>
-  </tr>
-</table>
-<% } else if (tickets == 2) {%>
-  <table border = "1">
-    <tr>
-      <th>Ticket</th>
-      <th>TicketID</th>
-      <th>Remove</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td><%=ticket1%></td>
-      <td><button type="button" class="btn btn-danger">X</button></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><%=ticket2%></td>
-      <td><button type="button" class="btn btn-danger">X</button></td>
-    </tr>
-  </table>
-<%}%>
+    <% if (tickets == 1) { %>
+    <table border="1">
+      <tr>
+        <th>Ticket</th>
+        <th>TicketID</th>
+        <th>Remove</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><%=ticket1%></td>
+        <td><button type="submit" class="btn btn-danger">X</button></td>
+      </tr>
+    </table>
+    <% } else if (tickets == 2) {%>
+    <table border="1">
+      <tr>
+        <th>Ticket</th>
+        <th>TicketID</th>
+        <th>Remove</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><%=ticket1%></td>
+        <td><button type="submit" class="btn btn-danger">X</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><%=ticket2%></td>
+        <td><button type="submit" class="btn btn-danger">X</button></td>
+      </tr>
+    </table>
+    <%}%>
+</form>
 <br>
 <table>
 
