@@ -7,8 +7,8 @@ const email = require("../config/nodemailer");
 
 
 module.exports = {
-  createAccount: function(req, res, username, password, password2) {
-    if (!username || !password) {
+  createAccount: function(req, res, email, password, password2) {
+    if (!email || !password) {
       errors.push({
         message: "please fill in fields"
       });
@@ -31,7 +31,7 @@ module.exports = {
     } else {
       //Form details appear valid!
       User.findOne({
-          email: username
+          email: email
         },
         function(err, foundUser) {
           //check if a user already exists
@@ -50,14 +50,14 @@ module.exports = {
             bcrypt.hash(password, saltRounds, function(err, hash) {
               if (!err) {
                 const newUser = new User({
-                  email: username,
+                  email: email,
                   password: hash
                 });
                 console.log(newUser);
                 //save the user to users collection
                 newUser.save(function(err) {
                   if (!err) {
-                    email.signupEmail(username);
+                    email.signupEmail(email);
                     req.flash('successMessage', 'You now have an account');
                     res.redirect("/users/login");
                   } else {
@@ -72,5 +72,31 @@ module.exports = {
           }
         });
     }
-  } //end of create account
+  }, //end of create account
+  deleteAccount: function(req, res, email) {
+    User.findOne({
+      email: email
+    }, function(err, foundUser) {
+      if (!err) {
+        Order.deleteMany({
+          userID: foundUser._id
+        }, function(err) {
+          if (!err) {
+            User.deleteOne({
+              _id: foundUser._id
+            }, function(err) {
+              if (!err) {
+                req.flash('successMessage', 'Account and tickets destroyed.');
+                res.redirect('/users/login');
+              } else {
+                console.log(err);
+                req.flash('errorMessage', 'Account deletion failed.');
+                res.redirect('/users/account');
+              }
+            });
+          }
+        });
+      };
+    });
+  }
 } // end of exports
