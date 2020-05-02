@@ -1,5 +1,9 @@
+<!-- Troy - tempoary ticket order page, page is rendered following
+the renderTicketPage function in renderPage file  -->
 <%- include("partials/header") -%>
 <script type="text/javascript">
+/*Troy - once the page contents load, then check to see how many tickets are
+available. If none are then disable the reserve button*/
   document.addEventListener("DOMContentLoaded", function(event) {
         if ( <%= ticketsReserved %> >= 1000) {
           document.getElementById("submitBtn").disabled = true;

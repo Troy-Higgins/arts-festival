@@ -1,6 +1,11 @@
+<!-- Troy - ejs document used to display bootstrap alerts to the user.  -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
+<!-- Troy - if there are some errors, errors will be defined. If there are errors
+then for each error display a new bootstrap warning with the contents of the
+error message. Array is used instead of flash since there could be multiple
+errors when registering an account.
+Template from https://getbootstrap.com/docs/4.0/components/alerts/ -->
 <% if(typeof errors != "undefined") { %>
 <% errors.forEach(function(error) { %>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -15,7 +20,8 @@
 <% } %>
 
 
-
+<!-- Troy - if the success flash message has be set, display it using a success
+alert which is green.-->
 <% if (successMessage.length > 0) { %>
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <%- successMessage %>
@@ -27,7 +33,8 @@
   </div>
 <% } %>
 
-
+<!-- Troy - if the success flash message has be set, display it using a success
+alert which is green.-->
 <% if (errorMessage != "") { %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <%- errorMessage %>
@@ -38,7 +45,8 @@
     </button>
   </div>
 <% } %>
-
+<!-- Troy - if the error flash message has be set, display it using a warning
+alert which is red.-->
 <% if (error != "") { %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <%- error %>

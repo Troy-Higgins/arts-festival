@@ -1,3 +1,7 @@
+<!-- Troy - tempoary stand in account page, used to list the account information.
+This page is dyanmic and will render the currently held tickets that the user
+has requested. It also provides functionality buttons to delete the account,
+order more tickets and to remove tickets. -->
 <%- include("partials/header")  %>
 
 <div align="center">
@@ -5,8 +9,12 @@
 
   <h1>Welcome to your account <%= user %></h1>
   <h1>You currently have <%= tickets %> tickets</h1>
+  <!-- Troy - Display tickets in a nested table within a form. Placing in a form
+allows the table to have a POST method. This post method is used to delete any
+tikcets -->
   <form class="" action="/users/deleteOrder" method="post">
-
+    <!-- Troy - The ticket table is dynamic since a user can have, 0, 1 or 2 tickets
+  a case has been made for each of these circumstances. -->
     <% if (tickets == 1) { %>
     <table border="1">
       <tr>
@@ -47,14 +55,18 @@
 
 <button name="button" id="ticketButton">Order tickets</button>
 
-
+<!-- Troy - button to logout, which invokes the passport deserializeUser function -->
 <form class="" action="/users/logout" method="post">
   <button type="submit" name="button">Log out</button>
 </form>
+<!-- Troy - button to delete account, which removes their account from the
+database, as well as any orders they have made. users are free to make an
+account with the same username. -->
 <form class="" action="/users/deleteAccount" method="post">
   <button type="submit" name="button">Delete account and tickets</button>
 </form>
 </div>
+<!-- Troy - Javascript for button to redirect user to ticket page -->
 <script type="text/javascript">
     document.getElementById("ticketButton").onclick = function () {
         location.href = "/users/tickets";

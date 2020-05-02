@@ -1,7 +1,14 @@
+/* Troy - custom module  that is used to render the order ticket page and the
+accounts page. These are required as they are ejs pages that contain dynamic
+content.
+
+Both the account and ticket page are tempoary templates made by Troy.*/
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const Ticket = require("../models/Ticket");
 const Order = require("../models/Order");
+/*Troy - The maximal amount of tickets each account can hold is two. But this
+could be changed at the clients request. */
 const userMaxTickets = 2;
 
 module.exports = {
