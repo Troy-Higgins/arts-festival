@@ -54,9 +54,13 @@ tikcets -->
 </table>
 
 <button name="button" id="ticketButton">Order tickets</button>
+<br>
+<br>
+<h3>Got any questions?</h3>
+<button name="Enquiry" id="submitEnquiry">Enquiries</button>
 
 <!-- Troy - button to logout, which invokes the passport deserializeUser function -->
-<form class="" action="/users/logout" method="post">
+<form class="" action="/users/enquiries" method="post">
   <button type="submit" name="button">Log out</button>
 </form>
 <!-- Troy - button to delete account, which removes their account from the
@@ -70,6 +74,9 @@ account with the same username. -->
 <script type="text/javascript">
     document.getElementById("ticketButton").onclick = function () {
         location.href = "/users/tickets";
+    };
+    document.getElementById("submitEnquiry").onclick = function () {
+        location.href = "/users/enquiries";
     };
 </script>
 

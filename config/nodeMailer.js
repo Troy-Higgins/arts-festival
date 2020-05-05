@@ -124,8 +124,44 @@ Wheatley Arts Festival`;
         console.log(err);
       } else {
 //Troy - console log if successful, or the error, this aids in bug testing.
-        console.log("successly sent");
+        console.log("successfully sent");
       }
     })
-  }
+  },
+
+/*Troy - Email the WAF email account with the user query
+include the user email so a response can be made. */
+
+
+  submitQuery: function(userEmail, message) {
+    //Troy - message body includes the users query.
+let messsageBody = message+ `
+
+From  ` + userEmail;
+
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: auth,
+    });
+
+    let mailOptions = {
+      from: process.env.GMAIL,
+      to: process.env.GMAIL,
+      subject: "query",
+      text: messsageBody
+    }
+
+    transporter.sendMail(mailOptions, function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("successfully sent");
+      }
+    })
+  },
+
+
+
 };

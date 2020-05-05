@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 const dbKey = "mongodb://localhost:27017/WAF";
 
 /*Troy - establish connection to mongoDB. With is achieved with the mongoose
-driver */
+driver. */
 mongoose.connect(dbKey, {
   useNewUrlParser: true,
   useUnifiedTopology: true
