@@ -164,4 +164,37 @@ From  ` + userEmail;
 
 
 
+
+  submitFeedback: function(userEmail, message) {
+    //Troy - message body includes the users feedback.
+let messsageBody = message+ `
+
+From  ` + userEmail;
+
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: auth,
+    });
+
+    let mailOptions = {
+      from: process.env.GMAIL,
+      to: process.env.GMAIL,
+      subject: "Feedback",
+      text: messsageBody
+    }
+
+    transporter.sendMail(mailOptions, function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("successfully sent");
+      }
+    })
+  },
+
+
+
+
 };
