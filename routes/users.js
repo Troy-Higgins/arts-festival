@@ -19,7 +19,7 @@ const account = require("../custom-module/accountFunctions");
 const generateOrder = orders.reserveTicket;
 const renderPage = require("../custom-module/renderPage");
 const bodyParser = require("body-parser");
-const email = require("../config/nodemailer");
+const sendEmail = require("../config/nodemailer");
 
 /* Troy - Simple render of the registration page. A check takes place to see if the user
  is already logged in with isNotAuthenticated, if they are they are redirected
@@ -76,10 +76,9 @@ router.get("/account", isAuthenticated, function(req, res) {
   renderPage.renderAccountPage(req, res, userEmail);
 });
 
-
 /*Troy - Post request for log out handling. The req.logout() function deserializeUser
 the user session with passport. Then they are redirected to the login page. */
-router.post("/logout", function(req, res) {
+router.post("/logout", isAuthenticated, function(req, res) {
   req.logout();
   req.flash("successMessage", "You have been logged out.");
   res.redirect("/users/login");
@@ -89,11 +88,30 @@ router.post("/logout", function(req, res) {
 the data in the contents form. This is then passed to the createAccount function
 that completes validation and attempts to add them to the database. */
 router.post("/register", function(req, res) {
-  const username = req.body.email;
+  const userEmail = req.body.email;
   const password = req.body.password;
   const password2 = req.body.password2;
-  account.createAccount(req, res, username, password, password2);
+  account.createAccount(req, res, userEmail, password, password2);
 });
+
+
+
+/*Troy - Get route allows users that are logged in to submit feedback,
+offers similar functioanlity so submitting a query but tailored to feedback*/
+router.get("/feedback", isAuthenticated, function(req, res) {
+  res.render("feedback")
+});
+
+/*Troy - Get route allows users that are logged in to submit feedback,
+offers similar functioanlity so submitting a query but tailored to feedback*/
+router.post("/feedback", isAuthenticated, function(req, res) {
+  const userEmail = req.user.email;
+  let messageBody = req.body.message;
+  sendEmail.submitFeedback(userEmail, messageBody);
+  req.flash("successMessage", "Your feedback has been submitted.");
+  res.redirect("/users/feedback");
+});
+
 
 router.post('/login', function(req, res, next) {
 /*Troy - Attempts to authenticate the user using the local Strategy found in the p

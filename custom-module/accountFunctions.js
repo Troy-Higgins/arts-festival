@@ -7,12 +7,13 @@ Originally the code in createAccount was in the users.js file.
 */
 //Troy - errors is an erray that holds error messages.
 var errors = [];
-const User = require("../models/User.js");
+const emailer = require("../config/nodemailer");
+const User = require("../models/User");
 const Order = require("../models/Order");
 const bcrypt = require("bcrypt");
 //Troy - use 10 salt rounds when using the bcrypt algorithm
 const saltRounds = 10;
-const email = require("../config/nodemailer");
+
 
 //Troy - Both the functions are exports so they can be used in other files.
 module.exports = {
@@ -79,7 +80,7 @@ module.exports = {
         /*Troy - if there are no errors, send them a confirmation email with
         nodemailer and redirect them to the login page with a success flash
         message that they now have an account. */
-                    email.signupEmail(email);
+                    emailer.signupEmail(email);
                     req.flash('successMessage', 'You now have an account.');
                     res.redirect("/users/login");
                   } else {
