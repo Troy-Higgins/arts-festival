@@ -1,0 +1,116 @@
+
+
+<!--Wanqun: HTML is used to render website contents to users in rich text format. All images from this website are from https://www.pexels.com. It provides free but high quality stock images, free for education and commercial use. -->
+<!DOCTYPE html> <!-- Wanqun: Inform user's browser which rendering mode should be used. -->
+<html lang="en"> <!-- Wanqun: Identify the language of text content of web pages -->
+	<head> <!-- Wanqun - Specify information about web page to browsers and search engines but is not displayed to users. -->
+		<!-- Wanqun: Specify the character encoding for Unicode -->
+		<meta charset = "utf-8">
+		<!-- Wanqun: Control the web pages dimension and scaling of the viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- Wanqun: Increase the chance of being searched by entering keyword terms on title and meta description tags -->
+		<title>Wheatley Art Festival</title>
+		<meta name="description" content="Creative art festival, wheatley, dancing, sculture, painting events">
+		<!-- Wanqun: Format and style web pages by linking to the specific CSS files -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	</head>
+
+	<body> <!--Wanqun: Web page contents start here that are displayed to users-->
+		<header>
+			<!-- Wanqun: Navigation Bar Section Starts Here-->
+			<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html">
+					<ul>
+					<li><h5>Wheatley</h5></li>
+					<li><h3>Art Festival</h3></li>
+					</ul>
+				</a>
+				<div class="clear"></div> <!--As I used float the right and float to left properties in the CSS file, a clear float proterpy needs to be added here just in case float will occur in some browsers. -->
+
+				<!--Wanqun: Navigation Toggler for Mobile and Tablet Version-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nabarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!--Wanqun: End of Navigation Toggler for Mobile and Tablet Version-->
+
+				<!--Wanqun: Navigation Toggler for Desktop Version Starts Here-->
+				<!-- Troy - Modified the routes to be compatible with backend-->
+				<div class="collapse navbar-collapse" id="navbarRespnsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"> <!--Wanqun: "Active" means the current page that user is viewing, when click to other hyperlink, it will go to the specific section automatically without scrolling-->
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about-us.html">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.html#events">Events</a>
+						</li>
+						<!-- Troy - No team page
+						 <li class="nav-item">
+							<a class="nav-link" href="team.html">Team</a>
+						</li> -->
+						<li class="nav-item">
+							<a class="nav-link" href="index.html#contact">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="users/login">Login </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="users/account">My Account </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="users/register">Register</a>
+						</li>
+					</ul>
+			</nav>
+			<!-- Wanqun: Navigation Toggler for Desktop Version Ends Here -->
+		</header>
+
+		<!-- Wanqun: Conceptual Art Starts Here -->
+		<div class="ceramic-art-container">
+		<div class="container-fluid padding">
+			<div class="row padding">
+				<div class="col-lg-6">
+					<img src="img/conceptual-art-7.jpg" class="img-fluid">
+				</div>
+				<div class="col-lg-6">
+					<h2>Conceptual Art</h2>
+					<p>To start the festival in the most exciting way possible, the local street dancing quartet “Concrete” will be demonstrating their brand-new composition. This never-seen-before dance will involve the quartet performing brave flips and dives, catching each other in mid-air. After the dance, the main hall will feature a spectacular exhibit of dance props from across the world. Some of these props will include the legendary Hiyaru fans used in oriental style dancing as well as the one-of-a-kind cane used by Mitch Harriet in his gothic horror play. We will also be offering a range of props which were discovered in an old chest within the Oxford Theatre during its renovation last year.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Wanqun: Conceptual Art Ends Here -->
+
+
+		<!-- Wanqun: Footer Section Starts Here -->
+
+		<footer class="footer">
+        <div class="copy-right_text">
+            <div class="footer-container">
+                <div class="row align-items-center">
+                    <div class="col-xl-12">
+                        <p class="copy_right ">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. Wheatley Art Festival <br> <a href="privacy-policy.html">Privacy Policy</a> &nbsp &#124 &nbsp <a href="terms-conditions.html">Terms & Conditions</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+		<!-- Wanqun: Footer Section Ends Here -->
+
+		<!-- Wanqun: Inserting JavaScript before the </body> tag instead of running it on the head section, becaure it makes the web pages load faster-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="js/edited-javascript.js"></script>
+		<!-- Wanqun: Display special icons as fonts on the web pages -->
+		<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+	</body><!--Wanqun: End of Web Page Contents-->
+</html>

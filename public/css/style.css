@@ -1,0 +1,454 @@
+
+/*- This is the customised CSS file, helps web page to display style properly, including fonts, images and paragraphs etc.--*/
+
+
+/*-------------------------Import special fonts, which are free licences for education and commercial purposes. It also prevent displaying 
+fonts inapproriate in different browsers --------------*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700&display=swap");
+@font-face {
+  font-family: playlist-script;
+  src: url(fonts/Playlist Script.otf) format('.otf');
+}
+/*---------------------------------------Global Selectors  --------------------------------------------------------------*/
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #454545;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+p {
+  line-height: 35px;
+  font-size: 16px;
+}
+/*---------------------------------------End of Global Selectors  --------------------------------------------------------*/
+
+/*--------------------------------------- Navigation Bar------------------------------------------------------------------*/
+.navbar {
+  padding: .8rem;
+}
+.navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
+}
+.collapse navbar-collapse {
+  background-color: red;
+
+}
+.navbar-nav li {
+  padding-right: 20px;
+}
+.nav-link {
+  font-size: 1.1em !important;
+}
+.navbar-barnd {
+  width: 200px;
+  height: 52px;
+  margin: 0 auto;
+  padding: 0;
+}
+.navbar-brand ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.navbar-brand ul li {
+  list-style-type: none;
+}
+.navbar-brand h5 {
+  font-size: 35px;
+  font-family: playlist-script;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.navbar-barnd h3 {
+  float: right;
+  font-size: 60px;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.clear {
+  clear: both;
+}
+
+
+/*---------------------------------------End of Navigation Bar--------------------------------------------------------------*/
+
+
+/*-------------------------------------------------Slider ------------------------------------------------------------------*/
+
+.carousel-inner img {
+  min-width: 100%;
+  min-height: 70%;
+
+}
+.carousel-caption {
+  position: absolute;
+  top: 62%;
+  transform: translateY(-62%);
+
+}
+.carousel-caption h1 {
+  font-size: 380%;
+  letter-spacing: 2px;
+}
+.carousel-caption h4{
+  font-family: "Poppins", sans-serif;
+  font-size: 180%;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+.btn-primary {
+  background-color: #6648b1;
+  border: 1px solid #6648b1;
+}
+.btn-primary:hover {
+  background-color: #563d7c;
+  border: 1px solid #563d7c;
+}
+
+.carousel-item {position: relative}
+
+/*-----------------------------------------------Slider Overlay Effect ----------------------------------------------------------*/
+.black-overlay {
+  position: absolute; 
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+}
+/*----------------------------------------------End of Slider Overlay Effect ----------------------------------------------------*/
+
+
+/*-------------------------------------------------End of Slider ----------------------------------------------------------------*/
+
+
+/*------------------------------------------------- Welcome ---------------------------------------------------------------------*/
+.welcome-container {
+  width: 50%;
+  margin: 0 auto; 
+  padding: 4rem 0;
+}
+.welcome-container h4 {
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.welcome-container p {
+  font-size: 25px;
+  font-family: sans-serif;
+  text-align: center;
+}
+.padding {
+  padding -bottom: 2rem;
+}
+/*------------------------------------------------- End of Welcome ---------------------------------------------------------------*/
+
+
+/*------------------------------------------------- Fixed Background -------------------------------------------------------------*/
+.fixed-background-container {
+  max-width: 100%;
+  margin:  5rem auto;
+  background: #f9f9f9;
+  font-size: 24px;
+
+}
+
+.parallax {
+  background: url('img/fixed-background-18.jpg') no-repeat center; /*--Image is from https://www.pexels.com. It provides free but high quality stock images, free for education and commercial use. --*/
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+}
+/*------------------------------------------------- End of Fixed Background ------------------------------------------------------*/
+
+/*------------------------------------------------- Event ------------------------------------------------------------------------*/
+
+.card-body a {
+  text-decoration: none;
+  color: #333;
+}
+.card-body a:hover {
+  text-decoration: none;
+  color: #333;
+}
+.card-body p {
+  text-decoration: none;
+  color: #333;
+}
+.card-body p:hover {
+  text-decoration: none;
+  color: #333;
+}
+.dancing-container, .about-us-container, .about-wheatley-art-container, .painting-container, .sculpture-container, .conceptual-art-container, .music-container, .ceramic-art-container
+{
+  width: 85%;
+  margin: 50px auto;
+  height: auto;
+  padding: 30px;
+}
+
+.dancing-container img, .about-us-container img, .about-wheatley-art-container img, .painting-container img, .sculpture-container img, .conceptual-art-container img, .music-container img, .ceramic-art-container img 
+{
+  width: 762px;
+  height: auto;
+}
+
+.dancing-container text, .about-us-container text, .about-wheatley-art-container text, .painting-container text, .sculpture-container text, .conceptual-art-container text, .music-container text, .ceramic-art-container text 
+{
+  width: 762px;
+  font-size: 30px;
+  line-height: 30px;
+  margin: 30px 0;
+}
+.dancing-container h2, .about-us-container h2, .about-wheatley-art-container h2, .painting-container h2, .sculpture-container h2, .conceptual-art-container h2, .music-container h2, .ceramic-art-container h2 
+{
+padding-bottom: 20px;
+}
+
+
+/*------------------------------------------------- End of Event -----------------------------------------------------------------*/
+
+/*------------------------------------------------- About us ---------------------------------------------------------------------*/
+
+.about-us {
+  margin: 4rem auto;
+}
+
+/*------------------------------------------------- End of About us --------------------------------------------------------------*/
+
+/*------------------------------------------------- Meet the Creative Designers  -------------------------------------------------*/
+.designers {
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.col-md-4 {
+  margin: 0;
+  padding: 0;
+
+}
+
+/*------------------------------------------------- End of Meet the Creative Designers  ------------------------------------------*/
+
+/*------------------------------------------------- Contact us  ---------------------------------------------------------------*/
+
+.googlemap {
+  width: 100%;
+  min-height: 100%: 
+}
+
+/*------------------------------------------------- End of Contact us  --------------------------------------------------------*/
+
+/*------------------------------------------------- Privacy Policy and Terms Conditions  --------------------------------------*/
+
+.privacy-policy-container, .terms-conditions-container {
+  width: 85%;
+  margin: 50px auto;
+  height: auto;
+  padding: 30px;
+
+}
+
+/*------------------------------------------------- End of Privacy Policy and Terms Conditions  -------------------------------*/
+
+/*------------------------------------------------- Social Icons -------------------------------------------------------------*/
+
+.social a {
+  font-size: 3.5em;
+  padding: 3rem;
+}
+.fa-facebook {
+  color: #3b5998;
+}
+.fa-twitter {
+  color: #00aced;
+}
+.fa-google-plus-g {
+  color: #dd4b39;
+}
+.fa-instagram {
+  color: #517fa4;
+}
+.fa-youtube {
+  color: #bb0000;
+}
+/*------------------------------------------------- End of Social Icons ---------------------------------------------------------*/
+
+
+/*------------------------------------------------- Footer  ---------------------------------------------------------------------*/
+.footer {
+  background: #222;
+}
+.footer p{
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+
+}
+.footer a {
+  text-decoration: none;
+  color: #fff;
+}
+.footer a:hover {
+  color: #883fc0;
+  text-decoration: none;
+}
+/*------------------------------------------------- End of Footer  --------------------------------------------------------------*/
+
+
+/*--------------------------------  Forms (including Login Form, Forget Password and Register Form) ------------------------------*/
+
+.logincontainer{
+height: 100%;
+align-content: center;
+}
+
+.logincard{
+height: 450px;
+margin: auto 0;
+width: 450px;
+background-color: #efefef;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+.card-footer {
+  width: 450px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+}
+
+/*--------------------------------  End of Forms (including Login Form, Forget Password and Register Form) Ends Here ------------------*/
+
+
+
+/*--------------------------------  About us -----------------------------------------------------------------------------------*/
+.about {
+  margin: 60px auto;
+}
+
+/*--------------------------------  End of  About us ----------------------------------------------------------------------------*/
+
+
+/*-----------------Media Queries Enable the Responsive Effects, e.g. Mobile and Tablet Versions ------------------------------*/
+
+/*------------------When the maximum width of the device is 992px  -----------------------------------------------------------*/
+@media (max-width: 992px) {
+  .social a {
+    font-size: 3.5em;
+    padding: 1.5rem;
+  }
+  .dancing-container {
+    width: 100%;
+  }
+  .sculpture-container {
+    width: 100%;
+  }
+  .painting-container {
+    width: 100%;
+  }
+ .conceptual-art-container {
+  width: 100%;
+ }
+ .music-container {
+  width: 100%;
+ }
+ .ceramic-art-container {
+  width: 100%;
+ }
+ .about-us-container {
+  width: 100%;
+ }
+ .about-wheatley-art-container {
+  width: 100%;
+ }
+
+  }
+/*---------------------------When the maximum width of the device is 768px  --------------------------------------------------*/
+@media (max-width: 768px) {
+
+  .carousel-caption {
+  top: 55%;
+
+}
+.carousel-caption h1 {
+  font-size: 320%;
+  letter-spacing: 2px;
+}
+.carousel-caption h4{
+  font-family: "Poppins", sans-serif;
+  font-size: 140%;
+  font-weight: 300;
+  padding-bottom: .2rem;
+}
+.carousel-caption .btn {
+  font-size: 95%;
+  padding: 8px 14px;
+}
+.display-4 {
+  font-size: 200%;
+}
+ .social a {
+    font-size: 3em;
+    padding: 1rem;
+  }
+.designers {
+  padding: 0;
+  margin: 0;
+}
+
+}
+/*----------------------------When the maximum width of the device is 576px  -------------------------------------------------*/
+@media (max-width: 576px) {
+.social a {
+  font-size: 2em;
+  padding: 1rem;
+}
+.designers {
+  padding: 0;
+  margin: 0;
+}
+}
+
+
+/*----------------------------------------------Firefox Debugging ------------------------------------------------------------*/
+.carousel-item {
+  backface-visibility: visible;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+}
+/*------------------------------------------ Bootstrap Padding Debugging -----------------------------------------------------*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+
+

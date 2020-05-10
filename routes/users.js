@@ -26,7 +26,7 @@ const sendEmail = require("../config/nodemailer");
  to their account page (since a user should not be able to register in if already
 logged in). */
 router.get("/register", isNotAuthenticated, function(req, res) {
-  res.render("sign-up");
+  res.render("register");
 });
 
 /* Troy - Simple render of the log in page. A check takes place to see if the user
