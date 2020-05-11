@@ -48,6 +48,8 @@ The views folder contains a series of ejs files which are webpages that use Embe
 This allows the use of templated webpages through the use of Expresses (the node server package) view engine.
 The most important of these are the account page, ticket page, registration and login webpages. 
 
+It's important to note that the login.ejs and registration.ejs were orignally html files supplied by Wanqun, but converted to ejs so that they can display flash messages.
+
 This folder also includes a subfolder called partials that contains snippets of ejs files that can be used in larger
 ejs files. The most important is the messages.ejs will is used to display flash messages.
 
