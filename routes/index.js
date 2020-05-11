@@ -27,7 +27,7 @@ router.post("/enquiries", function(req, res) {
   let messageBody = req.body.message;
   sendEmail.submitQuery(userEmail, messageBody);
   req.flash("successMessage", "Your query has been submitted.");
-  res.redirect("/enquiries");
+  res.redirect("/");
 });
 
 //Troy - route to the privacy policy page.

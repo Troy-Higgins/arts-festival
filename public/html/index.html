@@ -119,7 +119,6 @@
 
 
 		<!-- Wanqun: About Wheatley Art Festival-->
-		<!-- Troy - added id events -->
 		<div class="container-fluid padding">
 			<div class="row padding">
 				<div class="col-lg-6">
@@ -127,7 +126,7 @@
 				</div>
 				<div class="col-lg-6"> <!--Wanqun: "col-lg-6" is a Bootstrap grid format. Bootstrap divs are divided into 12 columns. The "6" in this example means the width of the div will be 6 columns of the whole div. "lg" means large desktop screen. -->
 					<h2>About Wheatley Art Festival</h2>
-					<p>What would an Arts festival be without its events? Well, that’s where we have you covered! We will be offering a range of events from all the main forms of Art. Our main events will include dancing, music, sculpturing, other forms of conceptual art and painting.</p>
+					<p>What would an Arts festival be without its events? Well, that’s where we have you covered! We will be offering a range of events from all the main forms of Art. Our main events will include dancing, music, sculpturing, other forms of conceptual art and an auction. Events will take place over Saturday and Sunday on the 12th and 13th of June. We are limited to 1000 tickets, so reserve yours today for free! </p>
 					<a href="about-us.html" class="btn btn-primary">Learn More </a>
 				</div>
 			</div>
@@ -158,7 +157,7 @@
 						<a href="ceramic-art.html"><img class="card-img-top" src="img/ceramic-art-7.jpg"></a>
 						<div class="card-body">
 							<a href="ceramic-art.html"><h4 class="card-title">Ceramic Art</h4></a>
-							<a href="ceramic-art.html"><p class="card-text">Something about John, internet entrepreeneur with almost 20 years of experience.</p></a>
+							<a href="ceramic-art.html"><p class="card-text">Come and experience the frantic rhythm and synergy of Boujour Valérie.</p></a>
 							<a href="ceramic-art.html" class="btn btn-outline-secondary">Learn more</a>
 						</div>
 					</div>
@@ -170,7 +169,7 @@
 						<a href="painting.html"><img class="card-img-top" src="img/painting-7.jpg"></a>
 						<div class="card-body">
 							<a href="painting.html"><h4 class="card-title">Painting</h4></a>
-							<a href="painting.html"><p class="card-text">Something about John, internet entrepreeneur with almost 20 years of experience.</p></a>
+							<a href="painting.html"><p class="card-text">Are you intrigued by comtemporary art? This year, we have invited some debutante artists from the reputable SOTA Gallery, Witney.</p></a>
 							<a href="painting.html" class="btn btn-outline-secondary">Learn more</a>
 						</div>
 					</div>
@@ -181,7 +180,7 @@
 						<a href="conceptual-art.html"><img class="card-img-top" src="img/conceptual-art-7.jpg"></a>
 						<div class="card-body">
 							<a href="conceptual-art.html"><h4 class="card-title">Conceptual Art</h4></a>
-							<a href="conceptual-art.html"><p class="card-text">Something about John, internet entrepreeneur with almost 20 years of experience.</p></a>
+							<a href="conceptual-art.html"><p class="card-text">Mongolian contemporary artist Ghohak Ilkhan enthralled many people at the Stockholm Festival of Lights in January.</p></a>
 							<a href="conceptual-art.html" class="btn btn-outline-secondary">Learn more</a>
 						</div>
 					</div>
@@ -297,11 +296,9 @@
 					<h2>Get in Touch</h2>
 					<p>Tel: 01865 403123 &nbsp; Fax: 01865 403126<br>
 					Email: wheatleyartfestival@gmail.com &nbsp; Address: 123, Wheatley Road, Oxford OX33 1HX</p>
-<!-- Troy - added id so redirects take it to this section -->
-						 <form method="post" data-form-title="CONTACT US" id="contact">
-			              <div class="form-group">
-			                <input type="text" class="form-control" name="name" required="" placeholder="Name*" data-form-field="Name">
-			              </div>
+<!-- Troy - added id so redirects take it to this section. Also added action
+so it posts to the backend -->
+						 <form method="POST" action="/enquiries" data-form-title="CONTACT US" id="contact">
 			              <div class="form-group">
 			                <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email">
 			              </div>
