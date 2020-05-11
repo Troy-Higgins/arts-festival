@@ -88,10 +88,7 @@ router.get("/sculpture.html", function(req, res) {
   res.sendFile("/sculpture.html" , {root: './public/html'});
 });
 
-//Troy - route to the painting event.
-router.get("/login.html", function(req, res) {
-  res.render("login2");
-});
+
 
 
 
