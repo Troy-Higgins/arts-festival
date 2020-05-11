@@ -17,10 +17,18 @@ This project was contributed to by Troy and Wanqun, you can contact us at the WA
 Since the backend of the website is written in Nodejs you will need to have this installed. 
 https://nodejs.org/en/
 
-You will then have to use the console to move to the directory where you saved the application and you should then be able  to start it with the command "node app.js". 
+You will then need to install all the approriate package files found in the package.json file, see - https://docs.npmjs.com/downloading-and-installing-packages-locally. 
+
+##### Package files are included in the project builds folder on the google drive.
+
+You will then have to use the console to move to the directory where you saved the application. 
+On windows this might be with the command "cd/desktop/WAF-build4".
+When in the correct directory you should then be able  to start the application with the command "node app.js". 
 
 If you see the following message “Server started and listening on port 3000”, great you are up an running. As you can 
 see the app uses port 3000 by default but this can be changed as needed. 
+
+To view the website, open up a browser and go to http://localhost:3000/ to be taken to the home page. From there you can navigate through the site normally.
 
 # File structure
 At the top level there a range of folders and files. 
