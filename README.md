@@ -26,7 +26,9 @@ see the app uses port 3000 by default but this can be changed as needed.
 At the top level there a range of folders and files. 
 
 ## files
-The first file is the .gitignore which includes all of the files that are not included in this repository (see What is not included in this repository? section).
+
+### .gitignore
+The first file is the .gitignore which includes all of the files that are not included in this repository (see What is not included in this repository? section). The .gitignore is based on the template found at https://github.com/github/gitignore/blob/master/Node.gitignore.
 
 ### app.js
 This is the core file of the project. It is used to start the express server and loads the middleware onto the express server. It also establishes the connections with MongoDB, either locally or in the cloud through MongoDB Atlas.
