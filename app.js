@@ -10,6 +10,7 @@ const ejs = require("ejs");
 //const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
+require('dotenv').config();
 
 
 /*Troy - use the term app for the express server, this is common practice in
@@ -21,7 +22,10 @@ app.use(express.static(__dirname +"/public"));
 app.set('view engine', 'ejs');
 
 //Troy - dbKey can be used to hold the local server, or the cloud Atlas DB server
-const dbKey = "mongodb://localhost:27017/WAF";
+//const dbKey = "mongodb://localhost:27017/WAF";
+
+const dbKey = process.env.MONGO;
+
 
 /*Troy - establish connection to mongoDB. With is achieved with the mongoose
 driver. */

@@ -5,8 +5,8 @@ Originally the code in createAccount was in the users.js file.
 
 
 */
-//Troy - errors is an erray that holds error messages.
-var errors = [];
+
+
 const emailer = require("../config/nodemailer");
 const User = require("../models/User");
 const Order = require("../models/Order");
@@ -17,9 +17,12 @@ const saltRounds = 10;
 
 //Troy - Both the functions are exports so they can be used in other files.
 module.exports = {
+
   /*Troy - createAccount takes the req, res objects as well as supplied
   email, password and password2 fields from the register form in register.ejs.*/
   createAccount: function(req, res, email, password, password2) {
+//Troy - errors is an erray that holds error messages.
+    let errors = [];
     //Troy - first check to makesure both email and password are populated.
     if (!email || !password) {
       //Troy - if one is empty, create message to fill them in next time.
@@ -42,7 +45,7 @@ module.exports = {
     /* Troy - if there are any errors render the sign in page again, but this time
      with any errors that occured. These will be displayed as dismissable warnings.*/
     if (errors.length > 0) {
-      res.render("sign-up", {
+      res.render("register", {
         errors: errors,
       });
     } else {
@@ -58,7 +61,7 @@ module.exports = {
             errors.push({
               message: "user already registered"
             });
-            res.render("sign-up", {
+            res.render("register", {
               errors: errors,
             });
           } else {
