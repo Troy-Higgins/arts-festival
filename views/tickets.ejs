@@ -1,4 +1,4 @@
-<!-- Troy - tempoary ticket order page, page is rendered following
+<!-- Troy - Ticket order page, page is rendered following
 the renderTicketPage function in renderPage file  -->
 <%- include("partials/header") -%>
 <!-- Troy - Wanqun style sheet included -->
@@ -81,12 +81,16 @@ available. If none are then disable the reserve button*/
 </script>
 <form class="" action="/users/ticketOrder" method="post">
   <div class="form-group">
+    <!-- Troy - Tell the user how many tickets they already have -->
     <h2>You have resereved <%= reservedByUser %> tickets</h2>
     <br>
     <h2> Get your tickets now only <%= 1000 - ticketsReserved %> tickets remain! </h2>
     <label for="ticket-selection">Select tickets</label>
     <select class="form-control" name="NoOfTickets" id="ticket-selection">
       <option>1</option>
+      <!-- Troy - since the max tickets per user is two, if they already have
+    one ticket then they should not be able to order 2 more.
+  Also checks to see if any of the 1000 remaining are still available -->
     <% if ( (ticketsReserved < 999) && (reservedByUser == 0)) {  %>
       <option>2</option>
   <%  } %>

@@ -1,3 +1,10 @@
+#Troy - This is the .gitignore file which includes all of the files that are not
+# tracked by git, most of them are files which contain sensitive information
+#A full complete build can be found on the shared drive
+#This file is based on a template found below
+#https://github.com/github/gitignore/blob/master/Node.gitignore
+
+
 # Logs
 logs
 *.log
